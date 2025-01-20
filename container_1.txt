@@ -1,0 +1,87 @@
+&self.root = BlockFormattingContext {
+    contents: BlockLevelBoxes(
+        [
+            AtomicRefCell {
+                value: Independent(
+                    IndependentFormattingContext {
+                        contents: NonReplaced(
+                            Flow(
+                                BlockFormattingContext {
+                                    contents: BlockLevelBoxes(
+                                        [
+                                            AtomicRefCell {
+                                                value: SameFormattingContextBlock {
+                                                    contents: BlockLevelBoxes(
+                                                        [
+                                                            AtomicRefCell {
+                                                                value: Independent(
+                                                                    IndependentFormattingContext {
+                                                                        contents: NonReplaced(
+                                                                            Flex(
+                                                                                FlexContainer {
+                                                                                    children: [
+                                                                                        AtomicRefCell {
+                                                                                            value: FlexItem(
+                                                                                                FlexItemBox,
+                                                                                            ),
+                                                                                        },
+                                                                                    ],
+                                                                                    config: FlexContainerConfig {
+                                                                                        container_is_single_line: false,
+                                                                                        writing_mode: WritingMode(
+                                                                                            0,
+                                                                                        ),
+                                                                                        flex_axis: Row,
+                                                                                        flex_direction: Row,
+                                                                                        flex_direction_is_reversed: false,
+                                                                                        flex_wrap: Wrap,
+                                                                                        flex_wrap_is_reversed: false,
+                                                                                        main_start_cross_start_sides_are: InlineStartBlockStart,
+                                                                                        align_content: AlignContent(
+                                                                                            ContentDistribution {
+                                                                                                primary: AlignFlags(
+                                                                                                    6,
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                        align_items: AlignItems(
+                                                                                            AlignFlags(
+                                                                                                11,
+                                                                                            ),
+                                                                                        ),
+                                                                                        justify_content: JustifyContent(
+                                                                                            ContentDistribution {
+                                                                                                primary: AlignFlags(
+                                                                                                    1,
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    },
+                                                                                    ..
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ..
+                                                                    },
+                                                                ),
+                                                            },
+                                                        ],
+                                                    ),
+                                                    contains_floats: false,
+                                                    ..
+                                                },
+                                            },
+                                        ],
+                                    ),
+                                    contains_floats: false,
+                                },
+                            ),
+                        ),
+                        ..
+                    },
+                ),
+            },
+        ],
+    ),
+    contains_floats: false,
+}

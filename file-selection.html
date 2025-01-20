@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dropZone" style="width: 300px; height: 200px; border: 2px dashed gray;">
+        Drag and drop files here
+      </div>
+    <button onclick="getFileMetadata()">hello</button>
+    <script>
+        const dropZone = document.getElementById("dropZone");
+
+        dropZone.addEventListener("dragover", (event) => {
+          event.preventDefault(); // Prevent default behavior to allow dropping
+        });
+    
+        dropZone.addEventListener("drop", (event) => {
+          event.preventDefault();
+        
+          // Access the dropped files
+          const files = event.dataTransfer.files; // FileList object
+        
+          for (const file of files) {
+            console.log(`File Name: ${file.name}`);
+            console.log(`File Size: ${file.size} bytes`);
+            console.log(`File Type: ${file.type}`);
+            console.log(`Last Modified: ${new Date(file.lastModified).toLocaleString()}`);
+          }
+        });
+        document.addEventListener("paste", async (event)=>{
+            const items = event.clipboardData.items;
+
+            for (const item of items) {
+              if (item.kind === "file") {
+                const file = item.getAsFile();
+
+                console.log(`File Name: ${file.name}`);
+                console.log(`File Size: ${file.size} bytes`);
+                console.log(`File Type: ${file.type}`);
+                console.log(`Last Modified: ${new Date(file.lastModified).toLocaleString()}`);
+                let url = URL.createObjectURL(file); // a blob URL
+                console.log(url)
+                let range = "bytes=0-5";
+                const resp = await fetch(url, {
+                    "headers": {
+                      "Range": range
+                    }
+                  });
+                console.log("range:",resp)
+                }
+                }
+        })
+        const content = "Hello, world!";
+        const file = new File([content], "example.txt", { type: "text/plain" });
+        
+
+        console.log(file.name); // "example.txt"
+        console.log(file.size); // 13
+        console.log(file.type); // "text/plain"
+        const blobSlice = file.slice(0,5).text().then((text)=>
+        {
+            console.log(text); // "Hello"
+        })
+        async function getFileMetadata(){
+            //let [fileHandle] = await window.showOpenFilePicker();
+            //const file1 =  await fileHandle.getFile();
+            const content = "Hello, world!";
+            const file = new File([content], "example.txt", { type: "text/plain" });
+            console.log(file.name); // "example.txt"
+            console.log(file.size); // 13
+            console.log(file.type); // "text/plain"
+            console.log(file)
+            let url = URL.createObjectURL(file); // a blob URL
+            console.log(url)
+            let range = "bytes=0-5";
+            const resp = await fetch(url, {
+                "headers": {
+                  "Range": range
+                }
+              });
+            console.log("range:",resp)
+        }
+    </script>
+</body>
+</html>

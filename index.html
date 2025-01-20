@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="file" id="fileInput">
+    </body>
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file){
+                console.log('Selected file:', file.name);
+                console.log('File size (bytes):', file.size);
+                console.log('File type:', file.type);
+            }
+        });
+        console.log("Hello World");
+    </script>
+</html>
+
+<!-- <script src="testharness.js"></script>
+<script src="testharnessreport.js"></script>
+<script src="util.js"></script>
+<script src="blob.any.js"></script> -->

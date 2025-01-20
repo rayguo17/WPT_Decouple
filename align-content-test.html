@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html,body {
+                margin:  0;
+                font-size: 10px;
+                line-height: 1;
+            }
+            .outer-float {
+                float: left;
+                background: gray;
+                height: 600px;
+                width: 50px;
+                margin: 0 1em;
+            }
+            .test {
+                background: white;
+                padding-right: 2px;
+                height: 2em;
+                
+            }
+            .in-flow{
+                margin-top: 0em;
+                background-color: orange;
+                
+            }
+            .float {
+                float:left;
+                background: orange;
+                height: 2em;
+            }
+        </style>
+    </head>
+    <body style="background-color: lightblue;">
+        <div style="margin-top: 0em; background-color: lightgreen; overflow: hidden; height:6em;">
+            <div style="display: block;">hloo</div>
+            <div class="test">
+                nice 
+                <span style="vertical-align:top;font-size:10px; height:1em; margin-top: 10px; color: aliceblue; background-color:blue">haha</span>
+                no problem
+                <div class="in-flow">
+                    different?
+                    <!-- <div>FLTing</div> -->
+                </div>
+            </div>
+        </div>
+        
+        <div> noway it collapse</div>
+    </body>
+    
+</html>
+
