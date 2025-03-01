@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html body {
+            margin: 0;
+            padding: 0;
+        }
+        .flexbox {
+            display: flex;
+            background-color: #aaa;
+            flex-wrap: wrap;
+        }
+        
+        .horizontal {
+            width: 200px;
+            height: 120px;
+        }
+        .horizontal > div {
+            min-height: 20px;
+        }
+        .horizontal > :nth-child(1) {
+            width: 100px;
+            min-height: 10px;
+        }
+        .horizontal > :nth-child(2) {
+            width: 100px;
+        }
+        .horizontal > :nth-child(3) {
+            width: 200px;
+        }
+        .horizontal > :nth-child(4) {
+            width: 50px;
+        }
+        
+        .flexbox :nth-child(1) {
+            background-color: lightblue;
+        }
+        .flexbox :nth-child(2) {
+            background-color: lightgreen;
+        }
+        .flexbox :nth-child(3) {
+            background-color: pink;
+        }
+        .flexbox :nth-child(4) {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="flexbox horizontal">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

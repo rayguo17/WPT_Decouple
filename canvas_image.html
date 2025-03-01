@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="350"></canvas>
+    <div >
+      <img
+        id="source"
+    src="https://static.huaweimossel.com/public/images/20241018/3d0741aad915b7013ce4188bee674be9cfad36f15678a39986f800c731c6256da87a82.gif"
+        width="400"
+        height="227" />
+      <img id="frame" src="canvas_picture_frame.png" width="132" height="150" />
+    </div>
+
+    <script>
+        window.onload= async ()=>{
+            await draw()
+        }
+        async function draw() {
+            // Wait for all images to be loaded.
+            console.log("running")
+            await Promise.all(
+            Array.from(document.images).map(
+              (image) =>
+                new Promise((resolve) => image.addEventListener("load", resolve)),
+            ),
+          );
+          console.log("Images loaded")
+        
+          const canvas = document.getElementById("canvas");
+          const ctx = canvas.getContext("2d");
+        
+          // Draw slice
+          console.log("Draw frame")
+          ctx.drawImage(
+            canvas,
+            0,
+            0,
+            400,
+            227,
+            22,
+            20,
+            87,
+            104,
+          );
+        
+          // Draw frame
+          ctx.drawImage(canvas, 0, 0);
+        }
+          
+    </script>
+</body>
+</html>

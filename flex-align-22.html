@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.flexbox {
+            width: 20px; /* Skinny, to force us to wrap */
+            height: 200px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: 2px;
+            float: left;
+            background: lightgray;
+          }
+          div.a {
+            width: 20px;
+            height: 10px;
+            flex: none;
+            background: lightgreen;
+          }
+          div.b {
+            width: 20px;
+            height: auto; /* height comes from contents */
+            flex: none;
+            background: pink;
+          }
+          div.c {
+            width: 20px;
+            height: 40px;
+            flex: none;
+            background: orange;
+          }
+    
+          /* Inside of 'b': */
+          div.fixedSizeChild {
+            width: 10px;
+            height: 30px;
+            background: purple;
+          }
+    </style>
+</head>
+<body>
+    <div class="flexbox">
+        <div class="a" data-expected-width="20" data-expected-height="10" data-offset-x="30" data-offset-y="8"></div>
+        <div class="b" data-expected-width="20" data-expected-height="110" data-offset-x="30" data-offset-y="98"><div class="fixedSizeChild" data-expected-width="10" data-expected-height="30" data-offset-x="30" data-offset-y="98"></div></div>
+      </div>
+      <div class="flexbox">
+        <div class="a" data-expected-width="20" data-expected-height="10" data-offset-x="52" data-offset-y="8"></div>
+        <div class="b" data-expected-width="20" data-expected-height="70" data-offset-x="52" data-offset-y="58"><div class="fixedSizeChild" data-expected-width="10" data-expected-height="30" data-offset-x="52" data-offset-y="58"></div></div>
+        <div class="c" data-expected-width="20" data-expected-height="40" data-offset-x="52" data-offset-y="128"></div>
+      </div>
+      <div class="flexbox" style="align-content: flex-start">
+        <div class="a" data-expected-width="20" data-expected-height="10" data-offset-x="74" data-offset-y="8"></div>
+      </div>
+      <div class="flexbox" style="align-content: flex-start">
+        <div class="a" data-expected-width="20" data-expected-height="10" data-offset-x="96" data-offset-y="8"></div>
+        <div class="b" data-expected-width="20" data-expected-height="30" data-offset-x="96" data-offset-y="18"><div class="fixedSizeChild" data-expected-width="10" data-expected-height="30" data-offset-x="96" data-offset-y="18"></div></div>
+      </div>
+</body>
+</html>
