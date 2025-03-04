@@ -7,49 +7,37 @@
 </head>
 <body>
     <canvas id="canvas" width="300" height="350"></canvas>
-    <div >
-      <img
-        id="source"
-    src="https://static.huaweimossel.com/public/images/20241018/3d0741aad915b7013ce4188bee674be9cfad36f15678a39986f800c731c6256da87a82.gif"
-        width="400"
-        height="227" />
-      <img id="frame" src="canvas_picture_frame.png" width="132" height="150" />
-    </div>
 
     <script>
-        window.onload= async ()=>{
-            await draw()
+        window.onload= ()=>{
+          var index = 0
+          setInterval(()=>{
+            draw(index%4)
+            index++
+          },2000)
+            
         }
-        async function draw() {
-            // Wait for all images to be loaded.
-            console.log("running")
-            await Promise.all(
-            Array.from(document.images).map(
-              (image) =>
-                new Promise((resolve) => image.addEventListener("load", resolve)),
-            ),
-          );
-          console.log("Images loaded")
-        
+        function draw(i) {
           const canvas = document.getElementById("canvas");
           const ctx = canvas.getContext("2d");
-        
-          // Draw slice
-          console.log("Draw frame")
-          ctx.drawImage(
-            canvas,
-            0,
-            0,
-            400,
-            227,
-            22,
-            20,
-            87,
-            104,
-          );
-        
-          // Draw frame
-          ctx.drawImage(canvas, 0, 0);
+          if (canvas.getContext) {
+            if (i==0){
+              ctx.fillRect(25, 25, 100, 100);
+              ctx.clearRect(45, 45, 60, 60);
+              ctx.strokeRect(50, 50, 50, 50);
+            }else if (i==1){
+              ctx.clearRect(0,0,canvas.width,canvas.height)
+            }else if (i==2){
+              ctx.fillRect(25, 25, 100, 100);
+              ctx.clearRect(45, 45, 60, 60);
+              ctx.strokeRect(50, 50, 50, 50);
+              ctx.clearRect(55, 55, 40, 40);
+              ctx.strokeRect(60, 60, 30, 30);
+            }else{
+              ctx.clearRect(0,0,canvas.width,canvas.height)
+            }
+            
+          }
         }
           
     </script>
